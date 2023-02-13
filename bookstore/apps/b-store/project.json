@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "b-store:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/b-store/proxy.conf.json"
       },
       "configurations": {
         "development": {
