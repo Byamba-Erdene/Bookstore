@@ -1,11 +1,5 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import express from 'express';
-// import * as path from 'path';
-
+import {IBook} from "@bookstore/shared-models"
 const app = express();
 
 // app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -15,7 +9,7 @@ app.get('/api', (req, res) => {
 });
 
 app.get("/api/books", (req,res) => {
-  const books: any[] = [
+  const books: IBook[] = [
       {
         id: 1,
         title: 'The Picture of Dorian Gray ',

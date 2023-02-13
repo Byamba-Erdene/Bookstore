@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import {Button} from "@bookstore/ui"
+import { IBook } from '@bookstore/shared-models';
 
 export interface BookProps {
-  book: any;
-  onAdd:(book:any)=>void
+  book: IBook;
+  onAdd:(book:IBook)=>void
 }
 
 const StyledBook = styled.div`

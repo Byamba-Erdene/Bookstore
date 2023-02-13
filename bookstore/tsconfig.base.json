@@ -18,6 +18,7 @@
       "@bookstore/books/data-access": ["libs/books/data-access/src/index.ts"],
       "@bookstore/books/feature": ["libs/books/feature/src/index.ts"],
       "@bookstore/books/ui": ["libs/books/ui/src/index.ts"],
+      "@bookstore/shared-models": ["libs/shared-models/src/index.ts"],
       "@bookstore/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@bookstore/ui": ["libs/ui/src/index.ts"]
     }
