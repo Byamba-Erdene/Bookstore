@@ -1,5 +1,6 @@
 import express from 'express';
-import {IBook} from "@bookstore/shared-models"
+import {IBook, ICart} from "@bookstore/shared-models"
+import path from 'path';
 const app = express();
 
 // app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -49,8 +50,18 @@ app.get("/api/books", (req,res) => {
   res.send(books)
 })
 
+app.post('/api/checkout',(req,res) => {
+  const cart: ICart = req.body;
+  console.log("Checking out...", JSON.stringify(cart,null,2))
+  res.send({order:"12345678"})
+})
+
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
+app.use(express.static(path.join(__dirname,  "../b-store")))
+app.get("*",function(req,res){
+  res.sendFile("index.html",{root:path.join(__dirname,"..b-store")})
+})
 server.on('error', console.error);

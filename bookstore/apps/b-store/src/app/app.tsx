@@ -7,9 +7,10 @@ import {
   Header,
   Main,
   NavigationItem,
-  NavigationList
-} from "@bookstore/ui"
+  NavigationList,
+} from '@bookstore/ui';
 
+import { CartFeature } from '@bookstore/cart/feature';
 
 export function App() {
   return (
@@ -20,16 +21,21 @@ export function App() {
         <NavigationList>
           <NavigationItem>
             <Link to="/books">Books</Link>
+            {/* <Link to="/feature">CartFeature</Link> */}
+          </NavigationItem>
+          <NavigationItem>
+            <Link to="/cart">Cart</Link>
           </NavigationItem>
         </NavigationList>
       </Header>
       <Main>
         <Routes>
-        <Route path="/books" element={<BooksFeature />} />
-        <Route path='/' element={<Navigate to="/books" />} />
+          <Route path="/books" element={<BooksFeature />} />
+          <Route path="/cart" element={<CartFeature />} />
+          <Route path="/" element={<Navigate to="/books" />} />
         </Routes>
       </Main>
-          </>
+    </>
   );
 }
 

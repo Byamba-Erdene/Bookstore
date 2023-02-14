@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import {getBooks} from "@bookstore/books/data-access"
-import {Books, Book} from "@bookstore/books/ui"
+import {Books} from "@bookstore/books/ui"
 import { IBook } from '@bookstore/shared-models';
+import { useDispatch } from 'react-redux';
+import {cartActions} from "@bookstore/cart/data-access"
 
 export function BooksFeature() {
   const [books,setBooks] = useState<IBook[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getBooks().then(setBooks)
@@ -14,7 +17,14 @@ export function BooksFeature() {
   return (
     <>
       <h2>Books</h2>
-      <Books books={books} onAdd={book => alert(`Added ${book.title}`)}/>
+      <Books books={books} onAdd={book => dispatch(
+        cartActions.add({
+          id:book.id,
+          description:book.title,
+          cost:book.price,
+        })
+      )
+      }/>
     </>
   )
 }
