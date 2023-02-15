@@ -63,8 +63,9 @@ export const CartFeature = () => {
           ))}
         </div>
         <p>Total:${total.toFixed(2)}</p>
-        <Button disabled={cartIsEmpty || status !== "ready"}>
-        {/* onClick={()=>dispatch(checkoutCart(cartItems))}> */}
+        <Button disabled={cartIsEmpty || status !== "ready"}
+        // onClick={()=>dispatch(checkoutCart(cartItems))}>
+        onClick={()=>console.log("Checking out")}>
           Checkout
         </Button>
         </>
